@@ -11,14 +11,35 @@ export default StyleSheet.create({
         "width": 300,
         "textAlign": "left",
         "position": "absolute",
-        "right": 10,
-        "bottom": 30,
+        "left": 60,
+        "top": 20,
         "border": "1px solid #dddddd",
         "borderRadius": 5,
-        "boxSizing": "border-box"
+        "boxSizing": "border-box",
+        "paddingTop": 10,
+        "paddingRight": 10,
+        "paddingBottom": 10,
+        "paddingLeft": 10
     },
-    "title": {
-        "position": "absolute",
-        "left": 3
+    "near-by-station": {
+        "paddingTop": 10,
+        "paddingRight": 10,
+        "paddingBottom": 10,
+        "paddingLeft": 10
+    },
+    "locationButton": {
+        "backgroundColor": "white",
+        "border": 1,
+        "borderColor": "grey",
+        "color": "grey",
+        "textAlign": "center",
+        "textDecoration": "none",
+        "display": "block",
+        "fontSize": 16,
+        "marginTop": 4,
+        "marginRight": 2,
+        "marginBottom": 4,
+        "marginLeft": 2,
+        "cursor": "pointer"
     }
 });

@@ -15,4 +15,15 @@
   padding: 10px;
 }
 
-
+.locationButton {
+  background-color: white; /* Green */
+  border: 1px;
+  border-color: grey;
+  color: grey;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
