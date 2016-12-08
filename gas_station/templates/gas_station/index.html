@@ -38,6 +38,7 @@
             map.on('locationfound', onLocationFound);
             map.on('locationerror', onLocationError);
             var gasPoints = [];
+
             $.getJSON("{% url 'points' %}", function(data) {
                 data.features.map((item) =>
                   {
@@ -63,14 +64,18 @@
 
               }).addTo(map);
 
+              var bufferLayer = L.circle([0, 0], 1);
               control.on('routeselected', function(e) {
-                     var route = e.route.coordinates;
-                     var routeLine= L.polyline(route);
-                     var convertLine = routeLine.toGeoJSON();
-                     var lineBuffered = turf.buffer(convertLine, 1, 'kilometers');
+                     map.removeLayer(bufferLayer);
 
-                     var layer = L.geoJson(lineBuffered).addTo(map);
+                     let route = e.route.coordinates;
+                     let routeLine= L.polyline(route);
+                     let convertLine = routeLine.toGeoJSON();
+                     let lineBuffered = turf.buffer(convertLine, 1, 'kilometers');
+
+                     bufferLayer = L.geoJson(lineBuffered).addTo(map);
                      $("ol").empty();
+
                      gasPoints.map((item) => {
 
                      if(turf.inside(item, lineBuffered)){
@@ -114,8 +119,8 @@
               function onLocationError(e) {
                 alert(e.message);
               }
-            }
 
+            }
 
             function createButton(label, container) {
               var btn = L.DomUtil.create('button', '', container);
@@ -124,8 +129,6 @@
               btn.innerHTML = label;
               return btn;
             }
-
-
 
       </script>
 
